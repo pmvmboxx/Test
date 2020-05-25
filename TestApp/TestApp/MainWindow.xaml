@@ -4,15 +4,31 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TestApp"
+        xmlns:controls="clr-namespace:Microsoft.Toolkit.Wpf.UI.Controls;assembly=Microsoft.Toolkit.Wpf.UI.Controls.WebView"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
+    <Grid Margin="5">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="100"></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
+            <RowDefinition Height="25"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
+        <StackPanel  Grid.Column="0" Grid.RowSpan="2" Orientation="Vertical">
+            <Button Content="Start navigation" Click="StartNavigation_Click" Margin="5" ></Button>
+            <Button Content="Stop navigation" Click="StopNavigation_Click"  Margin="5" ></Button>
+            <Button Content="Refresh" Click="Refresh"  Margin="5" ></Button>
+            <StackPanel Orientation="Horizontal">
+                <Button Content="Back" Click="Back_Click"  Margin="5" ></Button>
+                <Button Content="Forward" Click="Forward_Click"  Margin="5" ></Button>
+            </StackPanel>
+        </StackPanel>
+
+        <TextBox Grid.Row="0" Grid.Column="1" Margin="5" x:Name="Path" HorizontalAlignment="Stretch" Height="25" KeyDown="Path_KeyDown" ></TextBox>
+        <controls:WebView Grid.Row="1" Grid.Column="1" Margin="5" x:Name="Browser" Source="https://www.youtube.com/" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" NavigationCompleted="Browser_NavigationCompleted"></controls:WebView>
     </Grid>
+
+ 
 </Window>
